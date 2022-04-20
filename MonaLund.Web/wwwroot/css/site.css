@@ -15,9 +15,9 @@ h1{
     font-weight:600;
     font-style: italic;
 }
-a, .btn-link {
+/*a, .btn-link {
     color: #0071c1;
-}
+}*/
 
 .btn-primary {
     color: #fff;
@@ -85,4 +85,12 @@ a, .btn-link {
 
 .about-laila {
     background-color: #EED8D9;
+}
+
+.filter-catagory {
+    text-decoration: none;
+    color: lightslategray;
+}
+.filter-catagory:hover{
+    color: black;
 }
