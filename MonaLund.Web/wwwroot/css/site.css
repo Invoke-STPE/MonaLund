@@ -183,3 +183,18 @@ a {
     border-style: solid;
     border-color: #e8d1d1;
 }
+
+
+.fs-0 {
+    font-size: 1rem !important;
+}
+
+.fw-medium {
+    font-weight: 500 !important;
+}
+
+@media (min-width: 992px) {
+    .border-lg-0 {
+        border: 0 !important;
+    }
+}
