@@ -209,6 +209,12 @@ a {
     }
 }
 
+section {
+    position: relative;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
 @media (min-width: 992px) {
     section {
         padding-top: 7.5rem;
@@ -221,4 +227,27 @@ a {
 }
 .pt-7 {
     padding-top: 5rem !important;
+}
+
+.majestic-tabs {
+    border-bottom: 0;
+}
+.majestic-tabs .nav-link.active, .majestic-tabs .nav-item.show .nav-link {
+    border-bottom-color: #757575;
+}
+.majestic-tabs .nav-link {
+    border: 2px solid transparent;
+    color: #616161;
+}
+
+
+/*Nav pills*/
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #212121;
+    background-color: #E0E0E0;
+}
+.nav-pills .nav-link {
+    background: none;
+    border: 0;
+    border-radius: .25rem;
 }
