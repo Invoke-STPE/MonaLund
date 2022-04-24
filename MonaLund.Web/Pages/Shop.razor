@@ -2,62 +2,18 @@
 
 
 <div class="container">
-    <div class="row pt-5 justify-content-center">
-        <div class="col-6">
-            <ul class="list-inline d-flex d-flex-row justify-content-between">
-                @*Todo: Need to code functionality for category scroll*@
-                @*Need to make item active + css*@
-                @*Inspiration from dribbble.com*@
-                @*Need to make it scroll able on smaller screens, see throwaway project JSHorizontalScroll*@
-                <li class="list-inline-item "><a class=" filter-catagory" href="#">Møbler</a></li>
-                <li class="list-inline-item "><a class=" filter-catagory" href="#">Tasker</a></li>
-                <li class="list-inline-item "><a class=" filter-catagory" href="#">Tøj</a></li>
-                <li class="list-inline-item "><a class=" filter-catagory" href="#">Sko</a></li>
-                <li class="list-inline-item "><a class=" filter-catagory" href="#">Møbler</a></li>
-                <li class="list-inline-item "><a class=" filter-catagory" href="#">Tasker</a></li>
-                <li class="list-inline-item "><a class=" filter-catagory" href="#">Tøj</a></li>
-                <li class="list-inline-item "><a class=" filter-catagory" href="#">Sko</a></li>
-                <li class="list-inline-item "><a class=" filter-catagory" href="#">Sko</a></li>
-            </ul>
-        </div>
+    <div class="row">
+        @*<CarouselComponent />*@
     </div>
+   <CategoryComponent />
     <div class="row justify-content-end">
-        <div class="col-2 d-flex justify-content-end">
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Underkategori</option>
-              <option value="1">Kjoler</option>
-              <option value="2">Busker</option>
-              <option value="3">Jakker</option>
-            </select>
-        </div>
+        <hr class="mt-1" />
     </div>
+    <SubCategoryComponent />
     <div class="row mt-5">
-         <div class="col-lg-4 col-md-6 col-sm-12 col-12 h-75 pb-1 d-lg-block d-md-block">
-             <a href="#" class="text-decoration-none text-dark">
-            <div class="product-card shadow-none">
-                <img src="Images/kjole1.jpg" style="width: 100%"/>
-                <p class="fs-5 pt-2 pb-0 mb-0 text-decoration-none text-dark product-title">Sample Product Name</p>
-                <p class=" fs-3 pt-0 mt-0 price-tag">kr.100,00</p>
-            </div>
-            </a>
-        </div>
-       <div class="col-lg-4 col-md-6 col-sm-12 col-12 h-75 pb-1 d-lg-block d-md-block">
-             <a href="#" class="text-decoration-none text-dark">
-            <div class="product-card shadow-none">
-                <img src="Images/kjole1.jpg" style="width: 100%"/>
-                <p class="fs-5 pt-2 pb-0 mb-0 text-decoration-none text-dark product-title">Sample Product Name</p>
-                <p class=" fs-3 pt-0 mt-0 price-tag">kr.100,00</p>
-            </div>
-            </a>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 col-12 h-75 pb-1 d-lg-block d-md-block">
-             <a href="#" class="text-decoration-none text-dark">
-            <div class="product-card shadow-none">
-                <img src="Images/kjole1.jpg" style="width: 100%"/>
-                <p class="fs-5 pt-2 pb-0 mb-0 text-decoration-none text-dark product-title">Sample Product Name</p>
-                <p class=" fs-3 pt-0 mt-0 price-tag">kr.100,00</p>
-            </div>
-            </a>
-        </div>
+        @for(int i = 0; i < 6; i++)
+        {
+            <ProductComponent />
+        }
     </div>
 </div>
