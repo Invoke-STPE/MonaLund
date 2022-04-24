@@ -198,3 +198,17 @@ a {
         border: 0 !important;
     }
 }
+
+@media (min-width: 992px) {
+    section {
+        padding-top: 7.5rem;
+        padding-bottom: 7.5rem;
+    }
+}
+
+.carusal-img-height{
+    max-height: 390px;
+}
+.pt-7 {
+    padding-top: 5rem !important;
+}
