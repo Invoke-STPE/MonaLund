@@ -14,9 +14,10 @@ h1{
     font-weight:600;
     font-style: italic;
 }
-/*a, .btn-link {
-    color: #0071c1;
-}*/
+
+h4{
+    font-size: 1.44rem;
+}
 
 p {
     font-family: 'Poppins', sans-serif;
@@ -107,14 +108,57 @@ p {
 }
 
 
-bg-300 {
+.bg-300 {
     background-color: #eee;
 }
 
-text-800 {
+.text-800 {
     color: #616161;
 }
 
-bg-dark-gradient {
+.bg-dark-gradient {
     background: linear-gradient(0deg, rgba(33,33,33,0.411) 0%, rgba(33,33,33,0) 100%);
+}
+
+.fw-semi-bold {
+    font-weight: 600;
+}
+.fs-lg-5{
+    font-size: 2.4rem;
+}
+
+.fs-4 {
+    font-size: 2.0736rem !important;
+}
+.fs-1 {
+    font-size: 1.2rem !important;
+}
+
+.lh-sm {
+    line-height: 1.25rem;
+}
+
+/*h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-family: "Jost","Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 700;
+    line-height: 1.2;
+    color: #212121;
+}*/
+
+@media (min-width: 1200px){
+    .fs-xl-6 {
+        font-size: 2.98598rem !important;
+    }
+}
+@media (min-width: 992px) {
+    .fs-lg-5 {
+        font-size: 2.48832rem !important;
+    }
+}
+.btn-lg, .btn-group-lg > .btn {
+    padding: .5rem 3rem;
+    font-size: 1rem;
+    border-radius: 0;
 }
