@@ -100,7 +100,7 @@ p {
 
 .price-tag {
     font-weight: 600;
-    font-size: 28rem;
+    /*font-size: 2.8rem;*/
 }
 .product-title {
     font-weight: 400;
