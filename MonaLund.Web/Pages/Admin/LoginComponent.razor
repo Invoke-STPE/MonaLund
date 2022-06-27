@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using MonaLund.Web.Authentication
+@using MonaLund.Web.Models
+@inject IConfiguration _config;
+@inject AuthenticationStateProvider authStateProvider
+
+
+<div class="container w-25">
+  <div class="d-flex flex-column justify-content-center">
+    <div class="mb-3">
+        <label for="userName" class="form-label">BrugerNavn</label>
+        <input id="userName" type="text" class="form-control" @bind="userName" >
+    </div>
+    <div class="mb-3">
+    <label for="password" class="form-label">Adgangskode</label>
+    <input type="password" class="form-control" id="password" @bind="password">
+    </div>
+    <button class="btn bg-300" @onclick="authenticate"  >Log In</button>
+  </div>
+</div>
+
+@code {
+     [CascadingParameter]
+    public Task<AuthenticationState> _authenticationState { get; set; }
+    private string userName = "";
+    private string password = "";
+    private PasswordHasher<string> passwordHasher = new PasswordHasher<string>();
+    //private string hashedPassword = "";
+    //protected override void OnInitialized()
+    //{
+    //    hashedPassword = passwordHasher.HashPassword(null, "test1234");
+    //}
+
+    private async void authenticate()
+    {
+
+        string storedUserName = _config.GetValue<string>("LoginCredentials:userName");
+        string storedPassword = _config.GetValue<string>("LoginCredentials:password");
+
+        if (storedUserName == userName.ToLower())
+        {
+            PasswordVerificationResult result = passwordHasher.VerifyHashedPassword(null, storedPassword, password);
+
+            if (result == PasswordVerificationResult.Success)
+            {
+                var customAuthStateProvider = (CustomAuthenticationStateProvider)authStateProvider;
+                await customAuthStateProvider.UpdateAuthenticationState(new AuthUser
+                {
+                    Name = userName
+                });
+            }
+        }
+
+    }
+}

@@ -1,0 +1,18 @@
+﻿@page "/lailalund"
+
+<AuthorizeView>
+    <NotAuthorized>
+        <section>
+            <LoginComponent />
+        </section>
+    </NotAuthorized>
+    <Authorized>
+        <section>
+         <h1>Logged in yes</h1>
+        </section>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+
+}
