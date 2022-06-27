@@ -241,16 +241,9 @@ section {
 }
 
 .navbar {
-    position: relative;
-    background-color: transparent;
+    background-color: #F9F3F3;
 }
 
-.navbar-brand {
-    position: absolute;
-    left: 50%;
-    margin-left: -84px; /* 50% of your logo width */
-    display: block;
-}
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
     color: #757575;

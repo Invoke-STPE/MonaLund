@@ -6,3 +6,16 @@
 }
 
 <component type="typeof(App)" render-mode="ServerPrerendered" />
+
+<script>
+    function scrollToHome() {
+        let home = document.getElementById('home');
+        home.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function scrollToShop() {
+        let shop = document.getElementById('shop');
+        shop.scrollIntoView({ behavior: 'smooth' });
+        console.log(shop)
+    }
+</script>
