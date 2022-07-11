@@ -1,4 +1,8 @@
-﻿<div class="container">
+﻿@using Microsoft.EntityFrameworkCore
+@using MonaLund.Web.Models
+@using MonaLund.Web.Models.Contexts
+@inject MonaContext _context
+<div class="container">
     <div class="row h-100">
         <div class="col-lg-7 mx-auto text-center mb-6">
             <h5 class="fw-bold fs-3 fs-lg-5 lh-sm mb-3">Se mit udvalg her!</h5>
@@ -6,9 +10,14 @@
         <div class="col-12">
             <nav>
                 <div class="nav nav-tabs majestic-tabs mb-4 justify-content-center" id="nav-tab" role="tablist">
-                    <button class="nav-link active" id="nav-clothes-tab" data-bs-toggle="tab" data-bs-target="#nav-clothes" type="button" role="tab" aria-controls="nav-clothes" aria-selected="true">Tøj</button>
+
+                    @foreach(var category in _categories)
+                    {
+                        <button class="nav-link active" id="nav-@(category.Name)-tab" data-bs-toggle="tab" data-bs-target="#nav-@(category.Name)" type="button" role="tab" aria-controls="nav-@(category.Name)" aria-selected="true">@(category.Name)</button>
+                    }
+                   @* <button class="nav-link active" id="nav-clothes-tab" data-bs-toggle="tab" data-bs-target="#nav-clothes" type="button" role="tab" aria-controls="nav-clothes" aria-selected="true">Tøj</button>
                     <button class="nav-link " id="nav-furniture-tab" data-bs-toggle="tab" data-bs-target="#nav-furniture" type="button" role="tab" aria-controls="nav-furniture" aria-selected="false">Indretning</button>
-                    <button class="nav-link " id="nav-deco-tab" data-bs-toggle="tab" data-bs-target="#nav-deco" type="button" role="tab" aria-controls="nav-deco" aria-selected="false">Pynt</button>
+                    <button class="nav-link " id="nav-deco-tab" data-bs-toggle="tab" data-bs-target="#nav-deco" type="button" role="tab" aria-controls="nav-deco" aria-selected="false">Pynt</button>*@
                 </div>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade active show" id="nav-clothes" role="tabpanel" aria-labelledby="nav-clothes-tab">
@@ -371,3 +380,12 @@
         </div>
     </div>
 </div>
+
+@code {
+    private List<CategoryModel> _categories = new List<CategoryModel>();
+
+    protected async override Task OnInitializedAsync()
+    {
+        _categories = await _context.Categories.ToListAsync();
+    }
+}

@@ -3,6 +3,7 @@
 @using MonaLund.Web.Models
 @inject IConfiguration _config;
 @inject AuthenticationStateProvider authStateProvider
+@inject NavigationManager navManger
 
 
 <div class="container w-25">
@@ -20,7 +21,7 @@
 </div>
 
 @code {
-     [CascadingParameter]
+    [CascadingParameter]
     public Task<AuthenticationState> _authenticationState { get; set; }
     private string userName = "";
     private string password = "";
@@ -48,6 +49,8 @@
                 {
                     Name = userName
                 });
+                navManger.NavigateTo("/", forceLoad: true);
+
             }
         }
 

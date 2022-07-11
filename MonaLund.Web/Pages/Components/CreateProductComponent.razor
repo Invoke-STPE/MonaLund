@@ -1,0 +1,39 @@
+﻿@using MonaLund.Web.Models
+@using MonaLund.Web.Models.Contexts
+@inject MonaContext _context
+<div class="modal fade" id="createProduct" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Opret Kategori</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+            <label for="categoryName" class="form-label">Kategori Navn</label>
+            <input id="categoryName" type="text" class="form-control" @bind="categoryName">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Luk</button>
+        <button type="button" class="btn btn-primary" @onclick="CreateCategory" data-bs-dismiss="modal">Opret</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@code {
+    private string categoryName = "";
+
+
+    private async void CreateCategory()
+    {
+        CategoryModel newCategory = new CategoryModel
+        {
+            Name = categoryName
+        };
+        _context.Categories.Add(newCategory);
+        await _context.SaveChangesAsync();
+
+    }
+}
