@@ -1,12 +1,23 @@
 ﻿@page "/"
+@page "/index"
 
 <PageTitle>Index</PageTitle>
 
-<section id="home">
-  @*<IntroComponent />*@
-</section>
+<div class="container-fluid pt-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2">Udvalgte Produkter</span></h2>
+    </div>
+    <div class="row px-xl-5 pb-3">
 
-<section class="pt-0" id="shop">
+        @for(int i = 0; i < 10; i++)
+        {
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <ProductComponent />  
+            </div>
+        }
+    </div>
+</div>
+@*<section class="pt-0" id="shop">
         <ProductShowCase />
 </section>
-
+*@
