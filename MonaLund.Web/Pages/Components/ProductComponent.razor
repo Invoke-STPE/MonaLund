@@ -1,15 +1,22 @@
-﻿    <div class="card product-item border-0 mb-4">
+﻿@using MonaLund.Web.Models
+    <div class="card product-item border-0 mb-4">
         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-            <img class="img-fluid w-100" src="Images/jeans3.jpg" alt="">
+            <img class="img-fluid w-100" src="Images/@Product.Images" alt="">
         </div>
         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+            <h6 class="text-truncate mb-3">@Product.Name</h6>
             <div class="d-flex justify-content-center">
-                <h6>$123.00</h6>
+                <h6>@(Product.Price)DKK</h6>
             </div>
         </div>
         <div class="card-footer d-flex justify-content-between bg-light border">
-            <a href="" class="btn btn-sm text-dark p-0"><i class="bi bi-eye-fill text-primary mr-1"></i>Se På Facebook</a>
-            <a href="" class="btn btn-sm text-dark p-0"><i class="bi bi-eye-fill text-primary mr-1"></i>Se På DBA</a>
+            <a href="@Product.Facebook" class="btn btn-sm text-dark p-0"><i class="bi bi-eye-fill text-primary mr-1"></i>Se På Facebook</a>
+            <a href="@Product.Dba" class="btn btn-sm text-dark p-0"><i class="bi bi-eye-fill text-primary mr-1"></i>Se På DBA</a>
         </div>
     </div>
+
+
+    @code {
+        [Parameter]
+        public ProductModel Product { get; set; } = new ProductModel();
+    }

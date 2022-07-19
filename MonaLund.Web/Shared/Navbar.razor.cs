@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.EntityFrameworkCore;
 using MonaLund.Web.Authentication;
 using MonaLund.Web.Models;
 using MonaLund.Web.Models.Contexts;
@@ -23,7 +24,7 @@ namespace MonaLund.Web.Shared
         protected override void OnInitialized()
         {
             _isHomePage = _navigationManager.Uri == "https://localhost:7190/";
-            Categories = _context.Categories.ToList();
+            Categories = _context.Categories.Include(c => c.SubCategories).ToList();
             if (CheckForHomePageUrl())
             {
                 _homePageCss = "collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0";

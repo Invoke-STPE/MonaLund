@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MonaLund.Web.Models.Contexts;
 
@@ -10,9 +11,10 @@ using MonaLund.Web.Models.Contexts;
 namespace MonaLund.Web.Migrations
 {
     [DbContext(typeof(MonaContext))]
-    partial class MonaContextModelSnapshot : ModelSnapshot
+    [Migration("20220719065407_InitializeDb")]
+    partial class InitializeDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

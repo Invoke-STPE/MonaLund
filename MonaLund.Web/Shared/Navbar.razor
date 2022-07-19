@@ -63,19 +63,23 @@
                     <i class="bi bi-chevron-down text-dark"></i>
                 </a>
                 <nav class="@_homePageCss" id="navbar-vertical" style="@_calculateSize">
-                    <div class="navbar-nav w-100 overflow-hidden">
+                    <div class="navbar-nav w-100"> @*overflow-hidden*@
                         @foreach(CategoryModel category in Categories)
                         {
-                            <a href="" class="nav-item nav-link">@category.Name</a>
-                                @*<div class="nav-item dropdown">
-                                <a href="#" class="nav-link" data-bs-toggle="dropdown">Dresses <i class="bi bi-chevron-down float-right"></i></a>
-                                <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                    <a href="" class="dropdown-item">Men's Dresses</a>
-                                    <a href="" class="dropdown-item">Women's Dresses</a>
-                                    <a href="" class="dropdown-item">Baby's Dresses</a>
+                            @if (category.SubCategories != null && category.SubCategories.Count != 0) {
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link" data-bs-toggle="dropdown">@category.Name <i class="bi bi-chevron-down float-right"></i></a>
+                                    <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                                        @foreach (SubCategoryModel subCategory in category.SubCategories) {
+                                            <a href="" class="dropdown-item">@subCategory.Name</a>
+                                        }
+                                    </div>
                                 </div>
-                            </div>*@
+                        } else
+                        {
+                            <a href="/shop/@category.Name" class="nav-item nav-link">@category.Name</a>
                         }
+                    }
                     </div>
                 </nav>
             </div>

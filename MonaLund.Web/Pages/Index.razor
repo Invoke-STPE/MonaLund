@@ -1,5 +1,8 @@
 ﻿@page "/"
 @page "/index"
+@using MonaLund.Web.Models
+@using MonaLund.Web.Models.Contexts
+@inject MonaContext _context
 
 <PageTitle>Index</PageTitle>
 
@@ -9,15 +12,20 @@
     </div>
     <div class="row px-xl-5 pb-3">
 
-        @for(int i = 0; i < 10; i++)
+        @foreach(ProductModel product in _products)
         {
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <ProductComponent />  
+                <ProductComponent Product=product />  
             </div>
         }
     </div>
 </div>
-@*<section class="pt-0" id="shop">
-        <ProductShowCase />
-</section>
-*@
+
+@code {
+    private List<ProductModel> _products = new List<ProductModel>();
+
+    protected override void OnInitialized()
+    {
+        _products = _context.Products.Take(8).ToList();
+    }
+}
